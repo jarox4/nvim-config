@@ -7,6 +7,7 @@ return {
     },
     config = function()
       local dap, dapui = require("dap"), require("dapui")
+      require("dapui").setup()
 
       dap.adapters.coreclr = {
         type = 'executable',
@@ -37,11 +38,13 @@ return {
         -- dapui.close()
       end
 
+      vim.keymap.set('n', '<F4>', function() require('dapui').close() end)
       vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
       vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
       vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
       vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
       vim.keymap.set('n', '<Leader>db', function() require('dap').toggle_breakpoint() end)
+      vim.keymap.set('n', '<Leader>du', function() require('dapui').toggle() end)
     end
   },
 }

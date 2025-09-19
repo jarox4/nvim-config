@@ -4,9 +4,7 @@ return {
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.slylelua,
-        null_ls.builtins.diagnostics.ast_grep,
-        null_ls.builtins.formatting.ast_grep,
+        null_ls.builtins.formatting.slylua,
       }
     })
 

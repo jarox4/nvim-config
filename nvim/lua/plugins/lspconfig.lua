@@ -3,7 +3,10 @@ return
   {
     {
       "mason-org/mason.nvim",
-      opts = {}
+      opts = {},
+      config = function()
+        require("mason").setup()
+      end
     }
   },
   {
@@ -27,6 +30,10 @@ return
       lspconfig.lua_ls.setup({
           capabilities = capabilities
         })
+      lspconfig.omnisharp.setup({
+          capabilities = capabilities
+        })
+      
       vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "Code action" })
