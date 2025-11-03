@@ -25,6 +25,20 @@ return {
         },
       }
 
+      --dap.adapters.unity = {
+      --  type = 'executable',
+      --  command = '<path-to-mono-directory>/Commands/mono',
+      --  args = {'<path-to-unity-debug-directory>/unity.unity-debug-x.x.x/bin/UnityDebug.exe'}
+      --}
+      --dap.configurations.cs = {
+      --  {
+      --    type = 'unity',
+      --    request = 'attach',
+      --    name = 'Unity Editor',
+      --  }
+      --}
+
+
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
@@ -32,13 +46,14 @@ return {
         dapui.open()
       end
       dap.listeners.before.event_terminated.dapui_config = function()
-        -- dapui.close()
+        dapui.close()
       end
       dap.listeners.before.event_exited.dapui_config = function()
         -- dapui.close()
       end
 
-      vim.keymap.set('n', '<F4>', function() require('dapui').close() end)
+      --vim.keymap.set('n', '<F4>', function() require('dapui').close() end)
+      vim.keymap.set('n', '<F4>', function() require('dap').terminate() end)
       vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
       vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
       vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
