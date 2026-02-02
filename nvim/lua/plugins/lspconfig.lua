@@ -55,7 +55,7 @@ return
       --vim.lsp.enable("harper_ls")
       vim.lsp.enable("roslyn")
 
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
+      vim.keymap.set('n', '<C-a>', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "Code action" })
     end
