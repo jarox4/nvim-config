@@ -19,5 +19,6 @@ require("lazy").setup({
     { import = "plugins" },
   },
   install = { colorscheme = { "habamax" } },
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
+  performance = { rtp = { reset = false } }, -- turn off runtime path reset
 })
